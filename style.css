@@ -2,7 +2,11 @@ body {
     margin: 0;
     padding: 0;
     background: #333;
-    color: #fff;
+}
+
+.query {
+    color: white;
+    margin-left: 500px;
 }
 
 .percent-count {
