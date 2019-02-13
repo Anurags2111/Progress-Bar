@@ -1,0 +1,34 @@
+body {
+
+    font-family: Verdana;
+    margin: auto;
+    width: 25%;
+    padding: 10px;
+    background: black;
+}
+
+p {
+    color: white;
+}
+
+.xane {
+    font-size: 30px;
+}
+
+input {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+input:hover {
+    color: white;
+    background-color: #A51C30;
+}
