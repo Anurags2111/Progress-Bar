@@ -7,11 +7,34 @@
 </head>
 
 <body>
+
+
+
 <p class="xane"><span style="color:#3399ff">X</span>ane.<span style="color:#3399ff">ai</span></p>
 <div class="query">
     <p>Press the button below to start the survey.</p>
-    <input type="button" value="START" onclick="location.href='index.html'">
+
+    <input type='file' id="upload" accept='text/plain' onchange='openFile(event)'><br>
+    <input type="button" id="start" value="START" onclick="location.href='index.html'">
+    <script>
+        let openFile = function(event) {
+            let input = event.target;
+
+            let reader = new FileReader();
+            reader.onload = function(){
+                let text = reader.result;
+                let str = "";
+                str = str + text;
+                sessionStorage.setItem("test_case", str);
+            };
+            reader.readAsText(input.files[0]);
+        };
+    </script>
+
 </div>
+
+
+
 </body>
 
 </html>
