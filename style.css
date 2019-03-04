@@ -1,19 +1,80 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    background: #333;
+    font-family: Tahoma, sans-serif;
+    box-sizing: border-box;
 }
 
-.query {
-    font-family: Verdana;
-    color: white;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+.left {
+    height: 100%;
+    width: 40%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    left: 0;
+    background: #00223E;
+}
+
+.right {
+    height: 100%;
+    width: 60%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 0;
+    right: 0;
+    background: #F1EFF1;
+}
+
+.logo {
+    margin: 10px auto 20px;
+    display: block;
+}
+
+.progress-bar {
+    background: lightgray;
+    width: 502px;
+    height: 26px;
+    border-radius: 14px;
+    margin: 25px auto;
+    padding: 3px;
+}
+.progress {
+    width: 496px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: limegreen;
+}
+
+.percent-count {
+    width: 450px;
+    height: 50px;
+    margin: 25px auto;
+    font-size: 50px;
+    text-align: center;
+    color: lightgray;
+}
+
+input {
+    height: 50px;
+    padding: 5px;
+    box-shadow: 0 5px 6px -6px gray;
+    border: 0 none;
+    font-size:24px;
+    width: 70%;
+    margin-left: 60px;
+}
+
+::-webkit-input-placeholder {
+    opacity: 0.5;
 }
 
 button {
     background-color: #4CAF50;
+    height: 40px;
     border: none;
     color: white;
     padding: 5px 10px;
@@ -24,45 +85,68 @@ button {
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
 }
-
-.sub {
-    color: white;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-}
-
-input {
-    padding: 5px;
-    width: 50%;
-}
-
 button:hover {
-    background-color: white;
+    background-color: #A51C30;
+}
+
+.chatbox {
+    min-width: 390px;
+    height: 100%;
+    background: #F1EFF1;
+    padding: 25px;
+    padding-top: 0;
+    margin: 20px auto;
+    box-shadow: 0 3px #ccc;
+}
+
+.chatlogs {
+    padding: 10px;
+    width: 100%;
+    height: 550px;
+    position: relative;
+    background: #F1EFF1;
+}
+
+.query, .self {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.query .botpic {
+    width: 60px;
+    height: 60px;
+    background: white;
     color: black;
-}
-
-.percent-count {
-    width: 450px;
-    height: 50px;
-    margin: 100px auto;
-    font-size: 50px;
+    font-size: 65px;
+    border-radius: 50%;
     text-align: center;
-    color: #fff;
+    font-weight: 100;
+    box-shadow: 0 5px 6px -6px gray;
 }
 
-.progress-bar {
-    width: 496px;
-    height: 20px;
-    background-color: #bbb;
-    border-radius: 13px;
-    padding: 3px;
-    margin: 50px auto;
+.query #ques {
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 18px;
+    background: white;
+    color: black;
+    margin: 5px 10px 0;
+    box-shadow: 0 5px 6px -6px gray;
 }
 
-.progress {
-    width: 496px;
-    height: 20px;
-    border-radius: 10px;
-    background-color: #1e90ff;
+.self #reply {
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 18px;
+    background: #A5E4E4;
+    margin: 5px 10px 0;
+    box-shadow: 0 5px 6px -6px gray;
+}
+
+.chatlogs .self {
+    position: absolute;
+    right: 0;
+    margin: 5px 10px 0 20px;
 }
