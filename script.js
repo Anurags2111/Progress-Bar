@@ -1,12 +1,13 @@
 function progress_bar() {
 
     let dict = JSON.parse(sessionStorage.getItem("test_case"));
+    console.log(dict);
     let len = Object.keys(dict["questions"]).length;
     console.log(len); //9
     console.log(dict);
 
 
-    let A = [], nextid = -1, next_ind = -1;
+    let A = [], nextid = -1, next_ind = -1, response = "";
 
     function getDist(req_id) {
         let ret_index = -1;
@@ -94,22 +95,25 @@ function progress_bar() {
     let Button = document.querySelector('button');
     let progress = document.querySelector('#progress');
     let percent = document.querySelector('#percentCount');
-    let ques = document.querySelector("p");
+    let ques = document.querySelector("#ques");
+    let resp = document.querySelector("#reply");
+    let botpic = document.querySelector("#botpic");
+    let selfie = document.querySelector("#selfie");
     let prg = 0, perc = 0, opt = -1, counter = 0;
     let Over = false;
     let type = dict["questions"][counter].answer_type;
 
     frame(0, 0);
-    ques.textContent = dict["questions"][counter].question + "\n" + options(dict["questions"][counter].options);
+    ques.textContent +=  dict["questions"][counter].question + "\n" + options(dict["questions"][counter].options);
 
     Button.addEventListener("click", function () {
         if(!Over) {
+            let txt1 = document.getElementById('txt').value;
+            document.getElementById('txt').value = "";
+            let inp = "";
+            inp += txt1;
 
             if(type.localeCompare("Objective") === 0) {
-
-                let txt1 = document.getElementById('txt').value;
-                let inp = "";
-                inp += txt1;
                 switch (inp) {
                     case "0":
                         opt = 0;
@@ -130,13 +134,14 @@ function progress_bar() {
                         opt = 5;
                         break;
                 }
-
+                response = "" + dict["questions"][counter].options[opt].answer;
+                resp.textContent += response;
                 nextid = dict["questions"][counter].options[opt].next_question_id;
                 if(nextid === null) {
                     frame(496, 100);
                     document.querySelector('button').style.display = "none";
                     document.querySelector('input').style.display = "none";
-                    ques.textContent = "Thank you ;)";
+                    ques.textContent +=  "Thank you ;)";
                     Over = true;
                 }
                 else {
@@ -147,28 +152,27 @@ function progress_bar() {
                     counter = next_ind;
                     type = dict["questions"][counter].answer_type;
                     if(type.localeCompare("Objective") === 0) {
-                        ques.textContent = dict["questions"][counter].question + "\n" + options(dict["questions"][counter].options);
+                        ques.textContent += dict["questions"][counter].question + "\n" + options(dict["questions"][counter].options);
                     }
                     else {
-                        ques.textContent = dict["questions"][counter].question;
+                        ques.textContent += dict["questions"][counter].question;
                     }
                 }
 
             }
 
             else {
-                let txt1 = document.getElementById('txt').value;
-                let inp = "";
-                inp += txt1;
+
                 nextid = dict["questions"][counter].options[0].next_question_id;
                 if(nextid === null) {
                     frame(496, 100);
                     document.querySelector('button').style.display = "none";
                     document.querySelector('input').style.display = "none";
-                    ques.textContent = "Thank you ;)";
+                    ques.textContent += "Thank you ;)";
                     Over = true;
                 }
                 else {
+                    resp.textContent = inp;
                     next_ind = getDist(nextid);
                     prg = 62 * (9-dist[next_ind]);
                     perc = 12.5 * (9-dist[next_ind]);
@@ -176,10 +180,10 @@ function progress_bar() {
                     counter = next_ind;
                     type = dict["questions"][counter].answer_type;
                     if(type.localeCompare("Objective") === 0) {
-                        ques.textContent = dict["questions"][counter].question + "\n" + options(dict["questions"][counter].options);
+                        ques.textContent += dict["questions"][counter].question + "\n" + options(dict["questions"][counter].options);
                     }
                     else {
-                        ques.textContent = dict["questions"][counter].question;
+                        ques.textContent += dict["questions"][counter].question;
                     }
                 }
             }
