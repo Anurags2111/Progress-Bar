@@ -6,17 +6,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="percentCount" class="percent-count">0% test</div>
-<div class="progress-bar">
-    <div class="progress" id="progress"></div>
-</div>
-<div class="query">
-    <p>Press the Submit button to start the survey</p>
-    <div class="sub">
-        <input type="text" id="txt" name="txt" onclick="this.value = '' "/>
-        <button>Submit</button>
+
+<div class="left">
+    <img src="images/logo.jpg" alt="" class="logo">
+    <div id="percentCount" class="percent-count">0% test</div>
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
     </div>
 </div>
+
+<div class="right">
+    <div class="chatbox">
+
+        <div class="chatlogs">
+
+            <div class="query">
+                <div class="botpic"><p style="margin-top:-17px;">x</p></div>
+                <p id="ques">Hello, Anurag.</p>
+            </div>
+
+            <div class="self">
+                <p id="reply">Hey, World!</p>
+                <img id="selfie" src="images/person.png" alt="" style="border-radius: 50%;">
+            </div>
+
+        </div>
+
+        <div class="form">
+            <input type="text" id="txt" placeholder="Type your feedback here ..." name="txt" onclick="this.value = '' "/>
+            <button>Submit</button>
+        </div>
+
+    </div>
+</div>
+
 <script type="text/javascript" src="script.js"></script>
+
 </body>
 </html>
